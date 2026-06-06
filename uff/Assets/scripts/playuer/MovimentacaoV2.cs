@@ -34,8 +34,6 @@ public class MovimentacaoV2 : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Debug.Log("x é "+rb.linearVelocity.x);//te4ste
-        Debug.Log("z é "+rb.linearVelocity.z);//teste
         Vector3 movimento =new Vector3(dire.x,0f,dire.y);//bota na variavel movimento onde ela deve ir 
         rb.MovePosition(rb.position + movimento * velo * Time.fixedDeltaTime); //faz a conta /move de vdd
         rodieiaSuave();
