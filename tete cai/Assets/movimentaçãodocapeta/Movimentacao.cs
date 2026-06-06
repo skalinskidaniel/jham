@@ -7,11 +7,12 @@ public class Movimentacao : MonoBehaviour
     public CharacterController cc;
     public Vector2 Input;//os input do player
     private Vector3 veloGravidade;//gravidade 
-    public float velo = 5f;
+    public float velo = 6f;
     public float gravidade = -1.15f;//"força" da gravidade (curiosidade nois tem a mesma gravidade de mario 64)
     private Vector3 dire ;//DIREção pego aqui eu guardo a direção q quero ir pelo menos por enquanto
     private float veloRotation = 50f;
     private Animator animator;
+    public bool PodeAndar;
     void Awake()
     {
         cc = GetComponent<CharacterController>();
@@ -21,10 +22,13 @@ public class Movimentacao : MonoBehaviour
 
     void Update()
     {
-        dire = transform.right *Input.x+transform.forward*Input.y;//isso aqui da a direção soma os inputs
         
-        cc.Move(dire*velo* Time.deltaTime); //por enquanto eu n lembro como funciona o normalized pra elel n correer masi rapido na diagonal dps vejo isso 
-        
+        if(PodeAndar==true)//verificação pra ele travar entre as trocas de mundo
+        {
+         dire = transform.right *Input.x+transform.forward*Input.y;//isso aqui da a direção soma os inputs
+        }
+        cc.Move(dire*velo* Time.deltaTime); //por enquanto eu n lembro como funciona o normalized pra elel n correer masi rapido na diagonal dps vejo isso
+
         animator.SetBool("Andando",dire !=Vector3.zero);   
         
         veloGravidade.y += gravidade *Time.deltaTime;

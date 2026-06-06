@@ -127,64 +127,18 @@ public partial class @Player: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Mundos"",
+                    ""type"": ""Button"",
+                    ""id"": ""a74fc5a6-cd96-45ba-ba55-0fd42e31cdc6"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
-                {
-                    ""name"": ""2D Vector"",
-                    ""id"": ""d2a7e592-cfd7-420f-b529-83941df71592"",
-                    ""path"": ""2DVector"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Move"",
-                    ""isComposite"": true,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""Up"",
-                    ""id"": ""c9230c75-5b1d-4e78-b9b2-126f4a04aa87"",
-                    ""path"": ""<Keyboard>/w"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Move"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""Down"",
-                    ""id"": ""8892c653-b4ca-411c-b935-16c97ca28ce5"",
-                    ""path"": ""<Keyboard>/s"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Move"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""Left"",
-                    ""id"": ""3ed1fb8b-3779-4b46-bf6d-b2bf13fe3033"",
-                    ""path"": ""<Keyboard>/a"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Move"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""Right"",
-                    ""id"": ""95277ba0-412d-47a2-9c86-8adce70fe9fd"",
-                    ""path"": ""<Keyboard>/d"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Move"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
                 {
                     ""name"": """",
                     ""id"": ""91ea4280-b8c4-4dad-b4b9-41d55912088a"",
@@ -217,6 +171,72 @@ public partial class @Player: IInputActionCollection2, IDisposable
                     ""action"": ""Pulo"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""03cbccb4-bf73-4b1d-b0a3-8aa7fab02697"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Mundos"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""2D Vector"",
+                    ""id"": ""7fa378a7-6a4f-4ff9-adee-3bda8ae0cedb"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""1e8fc24a-6aaa-4ed0-bec0-d8580d40755f"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""a25d0861-deee-4972-9890-91ce45713a38"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""f825fd1b-7b33-44dc-aab5-437f494e9ca3"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""089036ce-9b4c-49ff-8534-0bce78e4eec8"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
                 }
             ]
         }
@@ -229,6 +249,7 @@ public partial class @Player: IInputActionCollection2, IDisposable
         m_PlayerdePe_Dash = m_PlayerdePe.FindAction("Dash", throwIfNotFound: true);
         m_PlayerdePe_Agachar = m_PlayerdePe.FindAction("Agachar", throwIfNotFound: true);
         m_PlayerdePe_Pulo = m_PlayerdePe.FindAction("Pulo", throwIfNotFound: true);
+        m_PlayerdePe_Mundos = m_PlayerdePe.FindAction("Mundos", throwIfNotFound: true);
     }
 
     ~@Player()
@@ -313,6 +334,7 @@ public partial class @Player: IInputActionCollection2, IDisposable
     private readonly InputAction m_PlayerdePe_Dash;
     private readonly InputAction m_PlayerdePe_Agachar;
     private readonly InputAction m_PlayerdePe_Pulo;
+    private readonly InputAction m_PlayerdePe_Mundos;
     /// <summary>
     /// Provides access to input actions defined in input action map "PlayerdePe".
     /// </summary>
@@ -340,6 +362,10 @@ public partial class @Player: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "PlayerdePe/Pulo".
         /// </summary>
         public InputAction @Pulo => m_Wrapper.m_PlayerdePe_Pulo;
+        /// <summary>
+        /// Provides access to the underlying input action "PlayerdePe/Mundos".
+        /// </summary>
+        public InputAction @Mundos => m_Wrapper.m_PlayerdePe_Mundos;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -378,6 +404,9 @@ public partial class @Player: IInputActionCollection2, IDisposable
             @Pulo.started += instance.OnPulo;
             @Pulo.performed += instance.OnPulo;
             @Pulo.canceled += instance.OnPulo;
+            @Mundos.started += instance.OnMundos;
+            @Mundos.performed += instance.OnMundos;
+            @Mundos.canceled += instance.OnMundos;
         }
 
         /// <summary>
@@ -401,6 +430,9 @@ public partial class @Player: IInputActionCollection2, IDisposable
             @Pulo.started -= instance.OnPulo;
             @Pulo.performed -= instance.OnPulo;
             @Pulo.canceled -= instance.OnPulo;
+            @Mundos.started -= instance.OnMundos;
+            @Mundos.performed -= instance.OnMundos;
+            @Mundos.canceled -= instance.OnMundos;
         }
 
         /// <summary>
@@ -469,5 +501,12 @@ public partial class @Player: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnPulo(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Mundos" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnMundos(InputAction.CallbackContext context);
     }
 }

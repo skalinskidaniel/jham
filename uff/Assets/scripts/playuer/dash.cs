@@ -5,29 +5,34 @@ using UnityEngine.InputSystem;
 public class dash : MonoBehaviour
 {
     public bool Dashe = false;//isso aqui diz se esta no dash ou n 
-    private CharacterController cc;
+    private float forcaDashe = 15;
+    private Rigidbody rb;
     private float tempo = 0f;// é tempo q elel vai receber essse embalo /força etc
     private float AnimTempo = 0.817f;//aqui é o tempo q dura a nimação de dash/rool oq for 
     private Animator animator;
     void Awake()
     {
-        cc = GetComponent<CharacterController>();
+        rb = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
     }
    void OnDash()
-    {
-        animator.SetTrigger("dash");   
+    { 
         Debug.Log("rolei");
-        StartCoroutine(Dash());
+        if(!Dashe)
+        {
+            StartCoroutine(Dash());
+        }
     }
    IEnumerator Dash()
     {
-        Debug.Log("tadeshando");
+        Debug.Log("puxo a função");
         Dashe = true; //quando chama ele avisa q agr esta em dash 
        //cc.height//puxei o cc aqui pq dependendo de como for a animação eu vou ter q diminuir o collider exemplo cambalhota
+       animator.SetTrigger("dash");
         while(tempo<AnimTempo)
-        {
-            cc.Move(5* transform.forward * Time.deltaTime);//aqui ocorre de fato o dash
+        { 
+            Debug.Log("to deshando de fato");
+            rb.AddForce(new Vector3(0,forcaDashe,0));//aqui ocorre de fato o dash transform.forward * Time.deltaTime
             tempo+= Time.deltaTime;
             yield return null;//aqui ele espera o outro frama mas no geral é pra parar o while
         }
