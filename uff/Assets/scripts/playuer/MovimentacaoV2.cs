@@ -43,20 +43,19 @@ public class MovimentacaoV2 : MonoBehaviour
         if(collision.gameObject.CompareTag("Chao"))
         {
             podePular = true;
+            animator.SetBool("EstanoChao",true);
+        }
+        if(!collision.gameObject.CompareTag("Chao"))
+        {
+            animator.SetBool("EstanoChao",false);
         }
     }
     void rodieiaSuave()
     {
         if(dire !=Vector3.zero)
         {
-            transform.forward = dire;
+            transform.forward = new Vector3(dire.x,0,dire.y);
         }
-       // if(new Vector2(rb.linearVelocity.x,rb.linearVelocity.z).magnitude>0f)
-       // {
-           // horizontalDire = new Vector3(rb.linearVelocity.x,0,rb.linearVelocity.z);
-            //Quaternion rotation = Quaternion.LookRotation(horizontalDire,Vector3.up);
-            //transform.rotation = Quaternion.RotateTowards(transform.rotation, rotation,veloRotation);
-       // }
     }
 
     

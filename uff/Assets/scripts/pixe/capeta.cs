@@ -14,10 +14,9 @@ public class capeta : MonoBehaviour
     }
     void Update()
     {
-        bicho.SetDestination(jogado.position);
+        bicho.SetDestination(jogado.position); //faz o bicho seguir o player pelo navmesh 
         if(teleporta)
         {
-            Debug.Log("respaw ta null");
             respaw.MorreudeQueda();
         }
     }
@@ -26,7 +25,7 @@ public class capeta : MonoBehaviour
         if(other.CompareTag("Player"))
         {
             animator.SetBool("bite",true);
-            respaw = other.GetComponent<MataQueda>();
+            respaw = other.GetComponent<MataQueda>(); // eu to acessando o script do outro e guardando em respw funny fact isso aqui é capetaria chinesa aprendi hj la naquele facebook da unity com o mesmo chines 
             teleporta = true;
         }
         
