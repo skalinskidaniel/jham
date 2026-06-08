@@ -12,6 +12,7 @@ public bool caiu= false;
         if(other.CompareTag("Player"))
         {
             respawAtual = transform.position;
+            Debug.Log("shakapoint slavo "+respawAtual);
         }
     }   
 }   

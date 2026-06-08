@@ -1,12 +1,15 @@
 using UnityEngine;
 using UnityEngine.AI;
+using System.Collections;
 public class capeta : MonoBehaviour
 {
     private bool teleporta = false;
-    private MataQueda respaw;
+    [SerializeField]private MataQueda respaw;
     public Animator animator;
     [SerializeField] private Transform jogado;
     [SerializeField] public NavMeshAgent bicho;
+    [SerializeField] private AudioSource mordeu;
+    [SerializeField] private AudioClip[] mordeuVariação;
     void Awake()
     {
         bicho = GetComponent<NavMeshAgent>();
@@ -25,10 +28,20 @@ public class capeta : MonoBehaviour
     {
         if(other.CompareTag("Player"))
         {
-            animator.SetBool("bite",true);
+            StartCoroutine(somMordida());
             respaw = other.GetComponent<MataQueda>();
             teleporta = true;
         }
         
+    }
+    void MordeuEvent()
+    {
+        mordeu.PlayOneShot(mordeuVariação[Random.Range(0,mordeuVariação.Length)]);
+    }
+    IEnumerator somMordida()
+    {
+        animator.SetBool("bite",true);
+        yield return new WaitForSeconds(1f);
+        animator.SetBool("bite",false);
     }
 }

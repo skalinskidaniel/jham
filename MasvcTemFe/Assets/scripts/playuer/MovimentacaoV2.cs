@@ -1,6 +1,7 @@
 using UnityEditor.Rendering.LookDev;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Rendering;
 public class MovimentacaoV2 : MonoBehaviour
 {
     private Vector3 horizontalDire;
@@ -10,8 +11,13 @@ public class MovimentacaoV2 : MonoBehaviour
     public float velo = 5f;
     private float veloRotation = 50f;
     public float forcaPulo = 15f;
-    
     private bool podePular = true;
+    [SerializeField] private AudioSource passossource;
+    [SerializeField] private AudioClip[] passosVariacao;
+    [SerializeField] private AudioSource PuloSouce;
+    [SerializeField] private AudioClip[] PuloVariacao;
+    [SerializeField] private AudioClip[] caiuvariacao;
+    [SerializeField] private AudioSource CaiuSouce;
     void Awake()
     {
         rb = GetComponent<Rigidbody>();
@@ -37,27 +43,47 @@ public class MovimentacaoV2 : MonoBehaviour
         Vector3 movimento =new Vector3(dire.x,0f,dire.y);//bota na variavel movimento onde ela deve ir 
         rb.MovePosition(rb.position + movimento * velo * Time.fixedDeltaTime); //faz a conta /move de vdd
         rodieiaSuave();
+       // if(podePular == false)
+        //{
+           // animator.SetBool("EstanoChao",false);
+        //}
     }
     private void OnCollisionEnter(Collision collision)//se se to no chao dai posso pula
     {
         if(collision.gameObject.CompareTag("Chao"))
         {
             podePular = true;
+            animator.SetBool("EstanoChao",true);
+           // CaiuSom();
+        }
+       
+    }
+    private void OnCollisionExit(Collision collision)
+    {
+        if(collision.gameObject.CompareTag("Chao"))
+        {
+            podePular = false;
+            animator.SetBool("EstanoChao",false);
         }
     }
     void rodieiaSuave()
     {
         if(dire !=Vector3.zero)
         {
-            transform.forward = dire;
+            transform.forward = new Vector3(dire.x,0,dire.y);
         }
-       // if(new Vector2(rb.linearVelocity.x,rb.linearVelocity.z).magnitude>0f)
-       // {
-           // horizontalDire = new Vector3(rb.linearVelocity.x,0,rb.linearVelocity.z);
-            //Quaternion rotation = Quaternion.LookRotation(horizontalDire,Vector3.up);
-            //transform.rotation = Quaternion.RotateTowards(transform.rotation, rotation,veloRotation);
-       // }
     }
-
+    private void Passos() // pra toca os som definidos na animação algume fora eu leu minhas anotações ? eu me sinto o thanos em ultimato quando vira fazendeiro
+    {
+        passossource.PlayOneShot(passosVariacao[Random.Range(0,passosVariacao.Length)]);
+    }
+    private void PuloSom()
+    {
+        PuloSouce.PlayOneShot(PuloVariacao[Random.Range(0,PuloVariacao.Length)]);
+    }
+    private void CaiuSom()
+    {
+        CaiuSouce.PlayOneShot(caiuvariacao[Random.Range(0,caiuvariacao.Length)]);
+    }
     
 }

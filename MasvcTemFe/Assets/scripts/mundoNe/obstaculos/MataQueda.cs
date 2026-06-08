@@ -2,9 +2,11 @@ using UnityEngine;
 
 public class MataQueda : shakaQueda
 {
-    private Rigidbody rb;
+    [SerializeField]private Rigidbody rb;
+   [SerializeField]private shakaQueda Caminhoderato;
     void Awake()
     {
+        //Caminhoderato = FindFirstObjectByType<shakaQueda>();
         rb = player.GetComponent<Rigidbody>();
     }
     void OnTriggerEnter(Collider other)
@@ -26,8 +28,8 @@ public class MataQueda : shakaQueda
     {
         rb.linearVelocity = Vector3.zero;       
         rb.angularVelocity = Vector3.zero;
-        Debug.Log("chamo o metodo");
-        player.transform.position = respawAtual;
+        Debug.Log("vc vai para "+ Caminhoderato.respawAtual);
+        player.transform.position = Caminhoderato.respawAtual;
         caiu = false;
         
     }
