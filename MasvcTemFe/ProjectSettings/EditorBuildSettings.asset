@@ -6,6 +6,21 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/menu.unity
+    guid: 5c5739410d6e1a84b8ccaa7d016a0a8a
+  - enabled: 1
+    path: Assets/Scenes/NoisOpcao.unity
+    guid: 4b4ec9cca25e5b84bb1d9f6a3f4a64b7
+  - enabled: 1
+    path: Assets/Scenes/fase_01.unity
+    guid: 60824c601dbcdfb4ea3a42b2c0098145
+  - enabled: 1
+    path: Assets/Scenes/fase_02.unity
+    guid: 57d7d39472152d94b95e2bbe348e47ea
+  - enabled: 1
+    path: Assets/Scenes/fase_03.unity
+    guid: dd360c6c68b558d478ef201dedecbc82
+  - enabled: 1
     path: Assets/Scenes/SampleScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
   m_configObjects:

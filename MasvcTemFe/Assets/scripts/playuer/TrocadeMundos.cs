@@ -7,6 +7,8 @@ public class TrocadeMundos : MonoBehaviour
     [SerializeField]private GameObject MundoA;
     [SerializeField]private GameObject MundoB;
     [SerializeField]private RawImage anim;
+    [SerializeField] private AudioSource TrocaSouce;
+    [SerializeField] private AudioClip[] TrocaVaria;
     private bool estouMundA = true;
    // private float alfa = 0f;
     private float tempo = 2f;
@@ -38,7 +40,7 @@ public class TrocadeMundos : MonoBehaviour
         anim.CrossFadeAlpha(0,0.90f, false);//faz o canva ficar transparente 
     }
     IEnumerator Animacao()
-    {
+    {   trocaSom();
         Escurecer();
         yield return new WaitForSeconds(1.50f);//espera um tempo
         Clarear();
@@ -62,5 +64,9 @@ public class TrocadeMundos : MonoBehaviour
 
         //yield return new WaitForSeconds(3.5f);//por isso aquii é maior 
         //PodeAndar = false;
+    }
+    void trocaSom()
+    {
+        TrocaSouce.PlayOneShot(TrocaVaria[Random.Range(0,TrocaVaria.Length)]);
     }
 }

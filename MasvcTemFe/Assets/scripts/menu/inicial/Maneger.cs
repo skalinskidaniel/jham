@@ -7,7 +7,7 @@ public class PlayBotao : MonoBehaviour
    [SerializeField] private string Menu = "Menu";
     public void Playgames()
     {
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene("fase_01");
     }
     public void Galerinhass()
     {
@@ -15,6 +15,6 @@ public class PlayBotao : MonoBehaviour
     }
     public void VOlta()
     {
-        SceneManager.LoadScene("Menu");
+        SceneManager.LoadScene("menu");
     }
 }
