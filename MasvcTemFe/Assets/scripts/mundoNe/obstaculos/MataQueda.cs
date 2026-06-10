@@ -6,7 +6,6 @@ public class MataQueda : shakaQueda
    [SerializeField]private shakaQueda Caminhoderato;
     void Awake()
     {
-        //Caminhoderato = FindFirstObjectByType<shakaQueda>();
         rb = player.GetComponent<Rigidbody>();
     }
     void OnTriggerEnter(Collider other)
