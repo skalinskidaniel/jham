@@ -6494,6 +6494,14 @@ PrefabInstance:
       propertyPath: 'colliders.Array.data[2]'
       value: 
       objectReference: {fileID: 900241387}
+    - target: {fileID: 1429603034203040929, guid: f811c1f58640c114bbbb6de4e3fdde01, type: 3}
+      propertyPath: velo
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1429603034203040929, guid: f811c1f58640c114bbbb6de4e3fdde01, type: 3}
+      propertyPath: forcaPulo
+      value: 35
+      objectReference: {fileID: 0}
     - target: {fileID: 6054213933371408656, guid: f811c1f58640c114bbbb6de4e3fdde01, type: 3}
       propertyPath: m_LocalPosition.x
       value: 112.43
@@ -6553,6 +6561,10 @@ PrefabInstance:
     - target: {fileID: 6867764935785618346, guid: f811c1f58640c114bbbb6de4e3fdde01, type: 3}
       propertyPath: m_Name
       value: Player (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8118811668671451765, guid: f811c1f58640c114bbbb6de4e3fdde01, type: 3}
+      propertyPath: m_Mass
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
